@@ -15,15 +15,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
+    let questions = [
+        ["4 + 2 = 6"],
+        ["5 - 3 é maior que 1"],
+        ["3 + 8 é menor que 10"]
+    ]
+    
+    var currentQuestion = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        updateUi()
     }
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        
+        currentQuestion += 1
+        updateUi()
     }
     
+    func updateUi(){
+        questionLabel.text = questions[currentQuestion]
+    }
 }
 
